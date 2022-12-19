@@ -1,5 +1,5 @@
 {% set name = "moffragmentor" %}
-{% set version = "0.0.4" %}
+{% set version = "0.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/moffragmentor-{{ version }}.tar.gz
-  sha256: 9eea88d4ed9ebc79faa386df4e009a8746d5b108494963dedc7b8ae7b811070b
+  sha256: c071b9090b11239ac7d4a3151f3d16e09386ccf9677b946b9c4a0f0ec7ebacda
 
 build:
   entry_points:
