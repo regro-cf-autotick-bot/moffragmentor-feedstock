@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/moffragmentor-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/moffragmentor-{{ version }}.tar.gz
   sha256: f41649b5010ba875d3c7eefda907f070adae4161114b785187f63ece4ca67aa3
 
 build:
@@ -14,14 +14,14 @@ build:
     - run_harvest = moffragmentor.cli:run_harvest
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - pymatgen
     - click
     - backports.cached-property
@@ -40,6 +40,8 @@ requirements:
     - rdkit
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - moffragmentor
   commands:
